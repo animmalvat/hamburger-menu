@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hamburger</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        var temp = false;
+        $(window).resize(function(){
+            if($(window).width() > 700) {
+                var cls = $(".floating-menu").attr("class").split(/\s+/)
+
+                if(cls.includes("view")) {
+                    $(".floating-menu").addClass("hide");
+                    setTimeout(()=>{
+                        $(".floating-menu").removeClass("hide");
+                    }, 400);
+                }
+
+                $(".floating-menu").removeClass("view");
+                
+                temp=false;
+
+            }
+        });
+
+        
+
+        function onClickMenu() {
+            temp = !temp;
+            if(temp) {
+                $('.floating-menu').addClass("view");
+                $('.floating-menu').removeClass("hide");                
+            } else {
+                $('.floating-menu').removeClass("view");
+                $('.floating-menu').addClass("hide");
+            }
+            console.log("clicked")
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="floating-menu">
+                <ul>
+                    <li><a href>Home</a></li>
+                    <li><a href>About us</a></li>
+                    <li><a href>Contact us</a></li>
+                </ul>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href>Home</a></li>
+                    <li><a href>About us</a></li>
+                    <li><a href>Contact us</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-button-container">
+                <button class="menu-button" onclick="onClickMenu()">MENU</button>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

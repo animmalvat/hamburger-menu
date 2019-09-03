@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #222277;
+}
+
+.nav-bar ul {
+    padding: 0;
+    margin: 0;
+    color: white;
+    margin-left: 40px;
+}
+
+.nav-bar li {
+    margin: 0;
+    display: inline-block;
+    padding: 20px 0px;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.nav-bar a:hover {
+    background-color: black;
+}
+
+.menu-button-container {
+    margin: 0;
+    padding: 0;
+    margin-right: 40px;
+    display: none;
+    align-self: center;
+    padding: 10px;
+}
+
+.menu-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: white 1px solid;
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+    align-self: center;
+}
+
+.view {
+    animation-name: viewAnimation;
+    animation-fill-mode: forwards;
+    animation-duration: 0.4s;
+    z-index: -1;
+}
+
+@keyframes viewAnimation {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.hide {
+    animation-name: hideAnimation;
+    animation-fill-mode: forwards;
+    animation-duration: 0.4s;
+    z-index: -1;
+}
+
+@keyframes hideAnimation {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-120%);
+    }
+}
+
+.floating-menu {
+    position: absolute;
+    background-color: #222277;
+    width: 100%;
+    text-align: center;
+    top:55px;
+    z-index: -1;
+    transform: translateY(-120%);
+}
+
+.floating-menu ul {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+}
+
+.floating-menu li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.floating-menu a {
+    width: 100%;
+    height: 100%;
+    display:block;
+    padding: 20px;
+}
+
+
+@media screen and (max-width: 700px) {
+    .menu {
+        display: none;
+    }
+
+    .menu-button-container {
+        display: block;
+    }
+}
